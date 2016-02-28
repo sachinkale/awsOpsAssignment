@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div id="wrapper">
+        <div id="container">
+	    <h3> Setup </h3>
+               <ul>
+                 {% for item in setup_items %}
+                   <li> {{ item }} </li>
+		 {% endfor %}
+               </ul>
+         </div>
+     </div>
+{% endblock %}
+
