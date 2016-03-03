@@ -31,7 +31,7 @@ class DefaultController extends Controller
     $result = $client->listTables();
     $msg = "";
     if(sizeof($result['TableNames']) == 0){
-      $result = $client->createTable(array(
+      /*$result = $client->createTable(array(
         'TableName' => 'jobs',
         'AttributeDefinitions' => array(
           array(
@@ -50,11 +50,11 @@ class DefaultController extends Controller
           'WriteCapacityUnits' => 1
         )
       ));
-      //$pid = $process->getPid();
+      //$pid = $process->getPid();*/
       $sqs = new \Aws\Sqs\SqsClient([
         'version' => 'latest',
         'region'  => 'us-east-1'
-        ]);
+        ])
       $sqs->sendMessage(array('MessageBody' => 'setup', 'QueueUrl' => $this->getParameter('jobq')));
 
       $msg = "In-Progress";//.$pid;
