@@ -163,7 +163,7 @@ def setup
     max_size: 4, # required
     desired_capacity: 2,
     default_cooldown: 1,
-    vpc_zone_identifier: "subnet-2044cb56,subnet-35dc001f",
+    vpc_zone_identifier: "#{SUBNET_IDS[0]},#{SUBNET_IDS[1]}",
     health_check_type: "EC2",
     health_check_grace_period: 1,
     tags: [
