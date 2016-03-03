@@ -54,7 +54,7 @@ class DefaultController extends Controller
       $sqs = new \Aws\Sqs\SqsClient([
         'version' => 'latest',
         'region'  => 'us-east-1'
-        ])
+        ]);
       $sqs->sendMessage(array('MessageBody' => 'setup', 'QueueUrl' => $this->getParameter('jobq')));
 
       $msg = "In-Progress";//.$pid;
